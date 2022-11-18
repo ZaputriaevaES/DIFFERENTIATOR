@@ -87,7 +87,7 @@ void  obj_ctor(Node * node, char ** text_buf)
 
     printf("##%c##%p##\n", **text_buf, node);
  
-    if(isalpha(**text_buf) && **text_buf != 'c' && **text_buf != 's' && **text_buf != 'p') //переменная
+    if(isalpha(**text_buf) && **text_buf != 'C' && **text_buf != 'S' && **text_buf != 'P' && **text_buf != 'L') //переменная
     {
         node->type = VARIABLE;
         node->data.var = **text_buf;
@@ -147,19 +147,24 @@ int operator_decryption_char_to_int(char opr)
             return DIV;             
             break;
         }   
-        case 's': 
+        case 'S': 
         {
             return SIN;             
             break;
         }
-        case 'c': 
+        case 'C': 
         {
             return COS;             
             break;
         }
-        case 'p': 
+        case 'P': 
         {
             return POW;             
+            break;
+        }     
+        case 'L': 
+        {
+            return LOG;             
             break;
         }            
         default:

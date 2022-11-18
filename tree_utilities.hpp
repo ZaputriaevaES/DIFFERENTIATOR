@@ -37,7 +37,8 @@ enum Opr_type
     DIV,
     SIN,
     COS,
-    POW
+    POW,
+    LOG
 };
 
 typedef int opr_t; //оператор

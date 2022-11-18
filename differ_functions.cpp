@@ -134,19 +134,24 @@ char operator_decryption_int_to_char(int opr)
         }     
         case SIN: 
         {
-            return 's';        
+            return 'S';        
             break;
         }
         case COS: 
         {
-            return 'c';             
+            return 'C';             
             break;
         }
         case POW: 
         {
-            return 'p';             
+            return 'P';             
             break;
         }                  
+        case LOG: 
+        {
+            return 'L';             
+            break;
+        }   
         default:
         {
             printf("error\n");
@@ -225,6 +230,7 @@ Node * node_differentiation(Tree * tree, Node * node, char var)
             case SIN: DIFF_SIN(node); break;        
             case COS: DIFF_COS(node); break;
             case POW: DIFF_POW(node); break;
+            case LOG: DIFF_LOG(node);  break;
             }
             break;
         }
