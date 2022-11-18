@@ -1,0 +1,32 @@
+digraph TREE{
+	node0x7fffc57a5bf0[label="*"]
+	node0x7fffc57a5bc0[label="*"]
+	node0x7fffc57a5bf0 -> node0x7fffc57a5bc0
+	node0x7fffc57a5bc0[label="*"]
+	node0x7fffc57a5b90[label="3"]
+	node0x7fffc57a5bc0 -> node0x7fffc57a5b90
+	node0x7fffc57a5bc0[label="*"]
+	node0x7fffc57a5b60[label="p"]
+	node0x7fffc57a5bc0 -> node0x7fffc57a5b60
+	node0x7fffc57a5b60[label="p"]
+	node0x7fffc57a59e0[label="+"]
+	node0x7fffc57a5b60 -> node0x7fffc57a59e0
+	node0x7fffc57a59e0[label="+"]
+	node0x7fffc57a5a10[label="x"]
+	node0x7fffc57a59e0 -> node0x7fffc57a5a10
+	node0x7fffc57a59e0[label="+"]
+	node0x7fffc57a5a40[label="3"]
+	node0x7fffc57a59e0 -> node0x7fffc57a5a40
+	node0x7fffc57a5b60[label="p"]
+	node0x7fffc57a5b30[label="2"]
+	node0x7fffc57a5b60 -> node0x7fffc57a5b30
+	node0x7fffc57a5bf0[label="*"]
+	node0x7fffc57a5b00[label="+"]
+	node0x7fffc57a5bf0 -> node0x7fffc57a5b00
+	node0x7fffc57a5b00[label="+"]
+	node0x7fffc57a5ad0[label="1"]
+	node0x7fffc57a5b00 -> node0x7fffc57a5ad0
+	node0x7fffc57a5b00[label="+"]
+	node0x7fffc57a5aa0[label="0"]
+	node0x7fffc57a5b00 -> node0x7fffc57a5aa0
+}
