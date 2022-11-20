@@ -13,3 +13,14 @@ Node * tree_differentiation(Tree * tree, char var);
 Node * node_differentiation(Tree * tree, Node * node, char var);
 
 Node * create_node(Node_type type, Node_data data, Node * left, Node * right);
+
+void   tree_optimizer(Node * node);
+void   constant_folding(Node * node, int * was_simplified);
+void   neutral_expressions(Node * node, int * was_simplified);
+
+void   constant_calculation(Node * node, int side, int * was_simplified);
+Node * const_calc(Node * node, int * was_simplified);
+
+int is_special_case(Node * node, int * was_simplified);
+
+int    is_node_const(Node * node);

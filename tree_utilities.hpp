@@ -15,6 +15,11 @@
 
 #define MAX_STR_LEN 40
 
+enum Side
+{
+    LEFT = 1,
+    RIGHT = 2
+};
 
 struct Text
 {

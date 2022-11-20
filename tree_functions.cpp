@@ -67,7 +67,7 @@ Node * tree_reading(Node * node, char ** text_buf)
 
 Node * node_ctor(Node * node) 
 {
-    assert (node == NULL);
+    //assert (node == NULL);
 
     node = (Node *) calloc(1, sizeof(Node));
     assert(node);
@@ -87,7 +87,7 @@ void  obj_ctor(Node * node, char ** text_buf)
 
     printf("##%c##%p##\n", **text_buf, node);
  
-    if(isalpha(**text_buf) && **text_buf != 'C' && **text_buf != 'S' && **text_buf != 'P' && **text_buf != 'L') //переменная
+    if(isalpha(**text_buf) && **text_buf != 'C' && **text_buf != 'S' && **text_buf != 'L') //переменная
     {
         node->type = VARIABLE;
         node->data.var = **text_buf;
@@ -157,7 +157,7 @@ int operator_decryption_char_to_int(char opr)
             return COS;             
             break;
         }
-        case 'P': 
+        case '^': 
         {
             return POW;             
             break;

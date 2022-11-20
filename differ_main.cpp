@@ -25,6 +25,7 @@ int main(int argc, char* argv[])
 
     tree_differentiation(differ.tree, 'x');
 
+
     finish_program(&differ);
 
     fclose(input_file);
