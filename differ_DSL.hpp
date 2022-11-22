@@ -30,26 +30,28 @@
 
 //-----------------------------------------------------------------------differentiation-------------------------------------------------         
 
-#define DIFF_NUM(node)  {return CREATE_NUM(0);}
+#define DIFF_NUM(node)  do{return CREATE_NUM(0);} while(0);
 
-#define DIFF_VAR(node)  {if (node->data.var == var) return CREATE_NUM(1); else return CREATE_NUM(0);}       
+#define DIFF_VAR(node)  do{if (node->data.var == var) return CREATE_NUM(1); else return CREATE_NUM(0);} while(0);      
 
-#define DIFF_ADD(node)  {return ADD_NODES(DIFF_LEFT, DIFF_RIGHT);}
+#define DIFF_ADD(node)  do{return ADD_NODES(DIFF_LEFT, DIFF_RIGHT);} while(0);
 
-#define DIFF_SUB(node)  {return SUB_NODES(DIFF_LEFT, DIFF_RIGHT);} 
+#define DIFF_SUB(node)  do{return SUB_NODES(DIFF_LEFT, DIFF_RIGHT);} while(0);
 
-#define DIFF_MUL(node)  {return ADD_NODES(MUL_NODES(DIFF_LEFT, COPY_RIGHT), MUL_NODES(COPY_LEFT, DIFF_RIGHT));}
+#define DIFF_MUL(node)  do{return ADD_NODES(MUL_NODES(DIFF_LEFT, COPY_RIGHT), MUL_NODES(COPY_LEFT, DIFF_RIGHT));} while(0);
 
-#define DIFF_DIV(node)  {return DIV_NODES(SUB_NODES(MUL_NODES(DIFF_LEFT, COPY_RIGHT), MUL_NODES(COPY_LEFT, DIFF_RIGHT)), MUL_NODES(COPY_RIGHT, COPY_RIGHT));}
+#define DIFF_DIV(node)  do{return DIV_NODES(SUB_NODES(MUL_NODES(DIFF_LEFT, COPY_RIGHT), MUL_NODES(COPY_LEFT, DIFF_RIGHT)), MUL_NODES(COPY_RIGHT, COPY_RIGHT));} while(0);
 
-#define DIFF_SIN(node)  {return MUL_NODES(COS_NODES(LEFT_NODE, COPY_RIGHT), DIFF_RIGHT);}
+#define DIFF_SIN(node)  do{return MUL_NODES(COS_NODES(LEFT_NODE, COPY_RIGHT), DIFF_RIGHT);} while(0);
 
-#define DIFF_COS(node)  {return MUL_NODES(MUL_NODES(SIN_NODES(LEFT_NODE, COPY_RIGHT), CREATE_NUM(-1)), DIFF_RIGHT);}
+#define DIFF_COS(node)  do{return MUL_NODES(MUL_NODES(SIN_NODES(LEFT_NODE, COPY_RIGHT), CREATE_NUM(-1)), DIFF_RIGHT);} while(0);
 
-#define DIFF_POW(node)  {if(RIGHT_NODE->type == NUMBER) return MUL_NODES(MUL_NODES(CREATE_NUM(RIGHT_NODE->data.num), POW_NODES(LEFT_NODE, CREATE_NUM(RIGHT_NODE->data.num - 1))), DIFF_LEFT); \
-                        else return MUL_NODES(node, LOG_NODES(CREATE_NUM(1), CREATE_NUM(LEFT_NODE->data.num)));}
+#define DIFF_POW(node)  do{if(RIGHT_NODE->type == NUMBER) \
+                        return MUL_NODES(MUL_NODES(CREATE_NUM(RIGHT_NODE->data.num), POW_NODES(LEFT_NODE, CREATE_NUM(RIGHT_NODE->data.num - 1))), DIFF_LEFT); \
+                        else return MUL_NODES(node, LOG_NODES(CREATE_NUM(1), CREATE_NUM(LEFT_NODE->data.num)));} while(0);
 
-#define DIFF_LOG(node)  {return MUL_NODES(DIV_NODES(CREATE_NUM(1), RIGHT_NODE), DIFF_RIGHT);}
+#define DIFF_LOG(node)  do{return MUL_NODES(DIV_NODES(CREATE_NUM(1), RIGHT_NODE), DIFF_RIGHT);} while(0);
+
 
 //-----------------------------------------------------------------------optimization-------------------------------------------------    
 

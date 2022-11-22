@@ -6,6 +6,8 @@ static int count_png = 0;
 
 const char * NAME_GRAPH_FILE = "graph.dot";
 
+const char * s = NULL;
+
 void tree_graph_dump(Node * root) 
 {
     assert(root);
@@ -46,8 +48,6 @@ void node_graph_dump(FILE * dot_file, Node * node, Node * node_son)
     node_graph_dump(dot_file, node_son, node_son->right);
 
 }
-
-
 
 void tree_inorder_dump (FILE * file, Node * node)
 {
@@ -437,4 +437,72 @@ int is_node_const(Node * node)
     } 
 
     return is_const;
+}
+
+
+int get_G(const char * str)
+{
+    s = str;
+    int val = get_E();
+    assert(*s == '\0');
+    return val;
+
+}
+
+int get_E(void)
+{
+    int val = get_T();
+    while(*s == '+' || *s == '-')
+    {
+        char op = *s;
+        s++;
+        int val2 = get_T();
+
+        if(op == '+') val += val2;
+        else val -= val2;
+    }
+    return val;
+}
+
+int get_T(void)
+{
+    int val = get_P();
+    while(*s == '*' || *s == '/')
+    {
+        char op = *s;
+        s++;
+        int val2 = get_P();
+
+        if(op == '*') val *= val2;
+        else val /= val2;
+    }
+    return val;
+}
+
+int get_P(void)
+{
+    int val = 0;
+    if(*s == '(')
+    {
+        s++;
+        val = get_E();
+        assert(*s == ')');
+        s++;
+    }
+    else
+        val = get_N();
+    return val;
+}
+
+int get_N(void)
+{
+    int val = 0;
+    const char * old_s = s;
+    while('0' <= *s && *s <= '9')
+    {
+        val = val * 10 + *s - '0';
+        s++;
+    }
+    assert(s != old_s);
+    return val;
 }

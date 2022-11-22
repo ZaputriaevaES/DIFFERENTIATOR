@@ -1,7 +1,8 @@
 #include "tree_functions.hpp"
 
-extern FILE * input_file;
-extern FILE * file_tree;
+FILE * input_file = fopen("input_file.txt", "r+");
+FILE * file_tree  = fopen("tree_dump.txt", "w");
+
 
 void start_program(Differ * differ)
 {
@@ -241,9 +242,7 @@ void node_dtor(Node * node)
     if (node->right != NULL) node_dtor(node->right);
 
     node->left = node->right = NULL;
-    //node->data = NULL;
 
-    //free(node->data);
     free(node);
 
     return;
