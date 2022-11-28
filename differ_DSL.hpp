@@ -7,13 +7,17 @@
 #define COPY_LEFT  tree_copy(LEFT_NODE)
 #define COPY_RIGHT tree_copy(RIGHT_NODE)
 
-#define COPY_NODE(copy_node)  node->type = copy_node->type;  node->data = copy_node->data;                 
+#define COPY_NODE(copy_node)  node->type = copy_node->type;  node->data = copy_node->data;      
+
+#define IS_UNARY(oper) (oper == SIN || oper == COS|| oper == LOG)
 
 //------------------------------------------------------------------------------------------------------------------------         
 
 #define CREATE_NODE(type, data, left_node, right_node) create_node(type, data, left_node, right_node)
 
 #define CREATE_NUM(num_data) create_node(NUMBER, {.num = num_data}, NULL, NULL)
+
+#define CREATE_VAR(var_data) create_node(VARIABLE, {.var = var_data}, NULL, NULL)
 
 #define CREATE_OPR(opr_data, left_node, right_node) create_node(OPERATOR, {.opr = opr_data}, left_node, right_node)
 

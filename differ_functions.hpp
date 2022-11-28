@@ -10,7 +10,7 @@ char  operator_decryption_int_to_char(int opr);
 
 Node * tree_copy(Node * node);
 
-Node * tree_differentiation(Tree * tree, char var);
+Tree * tree_differentiation(Tree * tree, char var);
 Node * node_differentiation(Tree * tree, Node * node, char var);
 
 Node * create_node(Node_type type, Node_data data, Node * left, Node * right);
@@ -23,9 +23,7 @@ void   constant_calculation(Node * node, int side, int * was_simplified);
 Node * const_calc(Node * node, int * was_simplified);
 int    is_special_case(Node * node, int * was_simplified);
 int    is_node_const(Node * node);
+Node * head_const_calc(Node * node);
 
-int get_G(const char * str);
-int get_E(void);
-int get_T(void);
-int get_P(void);
-int get_N(void);
+Tree * taking_nth_derivative(int diff_number, Tree * diff_tree, char var);
+

@@ -5,15 +5,20 @@ int main(int argc, char* argv[])
 {
     Differ differ = {};
 
-    //int val = get_G("3*(5-3)\0");
-    //printf("result: %d\n", val);
-
     start_program(&differ);
-
-    tree_inorder_dump(stdout, differ.tree->root);
     tree_graph_dump(differ.tree->root);
 
-    tree_differentiation(differ.tree, 'x');
+    title_tex_dump(differ.tree->root);
+
+    int diff_number = 0;
+    printf ("Введите степень производной: ");
+    scanf ("%d", &diff_number);
+
+    taking_nth_derivative(diff_number, differ.tree, 'x');
+
+    tree_inorder_dump(stdout, differ.tree->root);
+    printf("\n");
+    tree_graph_dump(differ.tree->root);
 
     finish_program(&differ);
 

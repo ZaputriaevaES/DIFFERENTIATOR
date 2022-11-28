@@ -36,14 +36,14 @@ enum Node_type
 
 enum Opr_type
 {
-    ADD,
-    SUB,
-    MUL,
-    DIV,
-    SIN,
-    COS,
-    POW,
-    LOG
+    ADD = '+',
+    SUB = '-',
+    MUL = '*',
+    DIV = '/',
+    SIN = 's',
+    COS = 'c',
+    POW = '^',
+    LOG = 'l'
 };
 
 typedef int opr_t; //оператор
@@ -75,6 +75,8 @@ struct Tree
 struct Differ 
 {
     Tree * tree = {};
+    Tree * diff_tree = {};
+    Tree * first_diff_tree = {};
     char * buffer = NULL;
 };
 

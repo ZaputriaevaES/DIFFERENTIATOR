@@ -1,0 +1,29 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\title{взятие производной функции}
+\author{Запутряева Екатерина Сергеевна}
+\date{25.11.2022}
+\begin{document}
+\maketitle
+\newpage
+взятие производной n-нного порядка функции: 
+$ f(x) = {({1 + 2 \cdot x})}^{2} + \sin{(3 \cdot x + 2)} \cdot 2 $
+
+\section{Взятие 2-ой производной.}
+
+$ f(x) = {({1 + 2 \cdot x})}^{2} + \sin{(3 \cdot x + 2)} \cdot 2$
+
+1-ая производноя:
+\newline Не требует дальнейших комментариев:
+
+$ {f}^{(1)} = 2 \cdot {({({1 + 2 \cdot x})}^{1})} \cdot {(0 + 0 \cdot x + 2 \cdot 1)} + \cos{(3 \cdot x + 2)} \cdot {(0 \cdot x + 3 \cdot 1 + 0)} \cdot 2 + \sin{(3 \cdot x + 2)} \cdot 0 = 2 \cdot {(1 + 2 \cdot x)} \cdot 2 + \cos{(3 \cdot x + 2)} \cdot 3 \cdot 2 $
+\newline 2-ая производноя:
+\newline Нетрудно заметить:
+
+$ {f}^{(2)} = {(0 \cdot {(1 + 2 \cdot x)} + 2 \cdot {(0 + 0 \cdot x + 2 \cdot 1)})} \cdot 2 + 2 \cdot {(1 + 2 \cdot x)} \cdot 0 + {(\sin{(3 \cdot x + 2)} \cdot (-1) \cdot {(0 \cdot x + 3 \cdot 1 + 0)} \cdot 3 + \cos{(3 \cdot x + 2)} \cdot 0)} \cdot 2 + \cos{(3 \cdot x + 2)} \cdot 3 \cdot 0 = 2 + \sin{(3 \cdot x + 2)} \cdot (-1) \cdot 3 \cdot 3 \cdot 2 $
+\newline Получаем:
+
+$ {f}^{(2)} = 2 + \sin{(3 \cdot x + 2)} \cdot (-1) \cdot 3 \cdot 3 \cdot 2 $
+\end{document}
